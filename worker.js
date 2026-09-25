@@ -81,7 +81,7 @@ async function handleChat(request, env) {
         Authorization: `Bearer ${env.GROQ_API_KEY}`
       },
       body: JSON.stringify({
-        model: "llama-3.1-8b-instant",
+        model: "openai/gpt-oss-20b",
         messages,
         temperature: 0.4,
         max_tokens: 220
