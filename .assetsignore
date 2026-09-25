@@ -1,0 +1,10 @@
+node_modules
+.wrangler
+functions
+worker.js
+wrangler.toml
+package.json
+package-lock.json
+README.md
+.gitignore
+.dev.vars
