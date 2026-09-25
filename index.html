@@ -1,0 +1,587 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Suvishal Kumar Sesetti — Portfolio</title>
+<meta name="description" content="Infrastructure & Backend Engineer — Production Support, Python, FastAPI, Linux">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+  :root {
+    --ink: #12203A;
+    --ink2: #1B2E4D;
+    --paper: #F6F3EC;
+    --card: #FFFFFF;
+    --text: #201F1B;
+    --muted: #706F65;
+    --accent: #B8874B;
+    --border: rgba(18,32,58,0.13);
+    --font-display: 'Newsreader', Georgia, 'Times New Roman', serif;
+    --font-body: 'IBM Plex Sans', -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: var(--font-body); background: var(--paper); color: var(--text); }
+  a { color: var(--ink); text-decoration: none; border-bottom: 1px solid rgba(18,32,58,0.3); }
+  a:hover { color: var(--accent); border-bottom-color: rgba(184,135,75,0.6); }
+  ::selection { background: #E4D6BC; }
+  h1, h2, h3 { font-family: var(--font-display); margin: 0; }
+  ul { margin: 0; }
+
+  .wrap { width: 100%; display: flex; flex-direction: column; align-items: center; position: relative; }
+  .container { max-width: 900px; width: 100%; margin: 0 auto; box-sizing: border-box; }
+
+  nav.site-nav { width: 100%; background: rgba(246,243,236,0.92); backdrop-filter: blur(6px); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 5; }
+  nav.site-nav .container { padding: 18px 32px; display: flex; justify-content: space-between; align-items: center; }
+  .brand { font-family: var(--font-display); font-size: 17px; font-weight: 500; color: var(--ink); letter-spacing: 0.01em; }
+  .navlinks { display: flex; gap: 26px; }
+  .navlink { font-family: var(--font-body); font-size: 12.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); border-bottom: 2px solid transparent; padding-bottom: 3px; transition: color .2s, border-color .2s; }
+  .navlink:hover { color: var(--ink); border-bottom-color: var(--accent); }
+
+  header.hero { width: 100%; background: linear-gradient(155deg, #0F1A2C 0%, #1B2E4D 100%); color: #F4F2EA; position: relative; overflow: hidden; }
+  .hero-watermark { position: absolute; top: -70px; right: -10px; font-family: var(--font-display); font-size: 420px; line-height: 1; color: rgba(255,255,255,0.045); font-weight: 500; user-select: none; pointer-events: none; }
+  header.hero .container { padding: 88px 32px 68px; display: flex; flex-direction: column; gap: 16px; position: relative; }
+  .eyebrow { font-size: 12.5px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent); font-weight: 600; }
+  h1.name { font-family: var(--font-display); font-size: 50px; line-height: 1.12; font-weight: 500; color: #FFFFFF; }
+  .rule-accent { width: 56px; height: 2px; background: var(--accent); }
+  .role { font-size: 18px; color: #D7DCE8; font-weight: 400; font-family: var(--font-display); font-style: italic; }
+  .hero-blurb { margin: 6px 0 0; font-size: 15.5px; line-height: 1.65; color: #C7CEDD; max-width: 560px; font-weight: 300; }
+  .hero-blurb a, .hero-meta a { color: #E8E2CF; border-bottom-color: rgba(232,226,207,0.4); }
+  .hero-meta { margin-top: 18px; display: flex; flex-wrap: wrap; gap: 18px; font-size: 13.5px; color: #B7C0D3; align-items: center; }
+  .hero-meta .sep { color: var(--accent); }
+
+  main { max-width: 900px; width: 100%; box-sizing: border-box; padding: 64px 32px 100px; display: flex; flex-direction: column; gap: 64px; margin: 0 auto; }
+  section { display: flex; flex-direction: column; gap: 22px; scroll-margin-top: 88px; }
+  .seclabel { font-family: var(--font-body); font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); font-weight: 600; }
+  .sectitle { font-family: var(--font-display); font-size: 27px; font-weight: 500; color: var(--ink); margin: 4px 0 0; }
+
+  .about-text { font-family: var(--font-display); font-size: 21px; line-height: 1.6; color: var(--ink); font-weight: 400; margin: 0; }
+
+  .timeline-row { display: flex; gap: 20px; }
+  .timeline-marker { display: flex; flex-direction: column; align-items: center; padding-top: 6px; }
+  .timeline-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
+  .timeline-line { width: 1px; flex-grow: 1; background: var(--border); margin-top: 6px; }
+  .role-block { display: flex; flex-direction: column; gap: 10px; padding-bottom: 4px; }
+  .role-head { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 6px; }
+  .role-title { font-family: var(--font-display); font-size: 19px; font-weight: 500; color: var(--ink); }
+  .role-dates { font-size: 13px; color: var(--muted); font-style: italic; }
+  .role-org { font-size: 14px; color: var(--muted); }
+  .role-list { margin: 6px 0 0; padding-left: 18px; display: flex; flex-direction: column; gap: 9px; font-size: 15px; line-height: 1.6; color: var(--text); }
+
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 3px; transition: box-shadow .25s ease, border-color .25s ease, transform .25s ease; padding: 28px 30px; display: flex; flex-direction: column; gap: 12px; }
+  .card:hover { box-shadow: 0 20px 44px rgba(18,32,58,0.10); border-color: rgba(18,32,58,0.24); transform: translateY(-2px); }
+  .proj-tag { font-size: 10.5px; }
+  .proj-head { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px; }
+  .proj-title { font-family: var(--font-display); font-size: 20px; font-weight: 500; color: var(--ink); }
+  .proj-stack { font-size: 12.5px; color: var(--muted); font-style: italic; white-space: nowrap; }
+  .proj-list { margin: 2px 0 0; padding-left: 18px; display: flex; flex-direction: column; gap: 7px; font-size: 15px; line-height: 1.6; color: var(--text); }
+  .proj-links { display: flex; gap: 20px; margin-top: 8px; padding-top: 14px; border-top: 1px solid var(--border); }
+  .projlink { font-family: var(--font-body); font-size: 12.5px; letter-spacing: 0.02em; color: var(--ink); border-bottom: 1px solid rgba(18,32,58,0.25); }
+  .projlink:hover { color: var(--accent); border-bottom-color: rgba(184,135,75,0.6); }
+  .proj-note { padding: 18px 26px; border: 1px dashed var(--border); border-radius: 3px; font-size: 13.5px; color: var(--muted); font-style: italic; }
+
+  .ledgerrow { display: flex; gap: 26px; padding: 15px 0; border-bottom: 1px solid var(--border); }
+  .ledgerrow:last-child { border-bottom: none; }
+  .ledgerlabel { width: 190px; flex-shrink: 0; font-family: var(--font-body); font-size: 11.5px; letter-spacing: 0.09em; text-transform: uppercase; color: var(--accent); font-weight: 600; padding-top: 2px; }
+  .ledgerval { flex-grow: 1; font-size: 14.5px; color: var(--text); line-height: 1.65; }
+
+  footer.site-footer { width: 100%; background: var(--ink); color: #F4F2EA; scroll-margin-top: 72px; }
+  footer.site-footer .container { padding: 60px 32px 44px; display: flex; flex-direction: column; align-items: center; gap: 16px; text-align: center; }
+  .footer-line { font-family: var(--font-display); font-size: 26px; font-weight: 400; font-style: italic; color: #FFFFFF; max-width: 480px; }
+  .footer-links { display: flex; align-items: center; gap: 16px; font-size: 13.5px; margin-top: 6px; color: #C7CEDD; }
+  .footer-links a { color: #E8E2CF; border-bottom-color: rgba(232,226,207,0.4); }
+  .footer-copy { font-size: 11.5px; color: #7C88A0; margin-top: 12px; letter-spacing: 0.04em; }
+
+  /* Chat widget */
+  .chat-root { position: fixed; bottom: 24px; right: 24px; z-index: 20; display: flex; flex-direction: column; align-items: flex-end; gap: 12px; }
+  .chat-panel { width: 328px; max-height: 460px; background: var(--paper); border-radius: 10px; box-shadow: 0 20px 56px rgba(18,32,58,0.26); border: 1px solid var(--border); display: none; flex-direction: column; overflow: hidden; }
+  .chat-panel.open { display: flex; }
+  .chat-header { background: var(--ink); color: #fff; padding: 16px 18px; display: flex; justify-content: space-between; align-items: flex-start; }
+  .chat-title { font-family: var(--font-display); font-size: 15px; font-weight: 500; }
+  .chat-sub { font-size: 11px; letter-spacing: 0.04em; color: var(--accent); margin-top: 3px; }
+  .closebtn { width: 26px; height: 26px; border-radius: 50%; border: none; background: transparent; color: rgba(255,255,255,0.55); cursor: pointer; font-size: 18px; line-height: 1; display: flex; align-items: center; justify-content: center; }
+  .closebtn:hover { color: #ffffff; }
+  .chat-messages { flex-grow: 1; overflow-y: auto; padding: 16px 18px; display: flex; flex-direction: column; gap: 10px; min-height: 160px; }
+  .msg { max-width: 88%; font-size: 13.5px; line-height: 1.5; padding: 9px 13px; border-radius: 10px; }
+  .msg.bot { align-self: flex-start; background: #FFFFFF; border: 1px solid var(--border); color: var(--text); border-bottom-left-radius: 3px; }
+  .msg.user { align-self: flex-end; background: var(--ink); color: #fff; border-bottom-right-radius: 3px; }
+  .msg a { display: inline-block; margin-top: 6px; font-size: 12px; }
+  .chat-chips { padding: 10px 18px; display: flex; flex-wrap: wrap; gap: 6px; border-top: 1px solid var(--border); }
+  .chip { font-family: var(--font-body); font-size: 12px; letter-spacing: 0.03em; padding: 6px 13px; border-radius: 999px; border: 1px solid var(--border); background: #FFFFFF; color: var(--ink); cursor: pointer; }
+  .chip:hover { border-color: var(--accent); color: var(--accent); }
+  .chat-inputrow { padding: 12px 18px 18px; display: flex; gap: 8px; border-top: 1px solid var(--border); }
+  .chatinput { flex-grow: 1; padding: 9px 13px; border-radius: 999px; border: 1px solid var(--border); font-size: 13.5px; font-family: var(--font-body); outline: none; background: #FFFFFF; }
+  .chatinput:focus { border-color: var(--accent); }
+  .sendbtn { width: 36px; height: 36px; border-radius: 50%; border: none; background: var(--ink); color: #fff; cursor: pointer; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: background .2s; }
+  .sendbtn:hover { background: var(--ink2); }
+  .fabbtn { width: 56px; height: 56px; border-radius: 50%; border: none; background: var(--ink); color: #fff; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 28px rgba(18,32,58,0.38); transition: background .2s, transform .2s; }
+  .fabbtn:hover { background: var(--ink2); transform: translateY(-1px); }
+
+  @media (max-width: 620px) {
+    h1.name { font-size: 36px; }
+    .hero-watermark { font-size: 260px; }
+    .navlinks { gap: 14px; }
+    .navlink { font-size: 11px; }
+    .ledgerrow { flex-direction: column; gap: 4px; }
+    .ledgerlabel { width: auto; }
+    .chat-root { right: 12px; bottom: 12px; }
+    .chat-panel { width: calc(100vw - 24px); }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <nav class="site-nav">
+    <div class="container">
+      <div class="brand">Suvishal Kumar Sesetti</div>
+      <div class="navlinks">
+        <a class="navlink" href="#experience">Experience</a>
+        <a class="navlink" href="#projects">Projects</a>
+        <a class="navlink" href="#skills">Skills</a>
+        <a class="navlink" href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="hero-watermark" aria-hidden="true">S</div>
+    <div class="container">
+      <div class="eyebrow">Portfolio</div>
+      <h1 class="name">Suvishal Kumar<br>Sesetti</h1>
+      <div class="rule-accent"></div>
+      <div class="role">Infrastructure &amp; Backend Engineer — Production Support, Python, FastAPI, Linux</div>
+      <p class="hero-blurb">
+        I keep production systems running and build backend tools to make that easier — currently supporting enterprise-scale storage infrastructure at <a href="https://www.hitachivantara.com/en-us/home" target="_blank" rel="noopener">Hitachi Vantara</a>, while building toward backend software engineering.
+      </p>
+      <div class="hero-meta">
+        <span>Hyderabad, India</span>
+        <span class="sep">/</span>
+        <a href="mailto:suvishalkumarsesetti@gmail.com">suvishalkumarsesetti@gmail.com</a>
+        <span class="sep">/</span>
+        <span>+91 8374245391</span>
+        <span class="sep">/</span>
+        <a href="https://www.linkedin.com/in/suvishal-kumar-sesetti/" target="_blank" rel="noopener">LinkedIn</a>
+        <span class="sep">/</span>
+        <a href="https://github.com/suvishal" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <section>
+      <p class="about-text">
+        Production support engineer with 2+ years of hands-on experience troubleshooting mission-critical enterprise systems — incident response, root cause analysis, and ITIL-driven change management across Linux and VMware environments. Alongside this, I build backend services in Python and FastAPI, work with PostgreSQL for schema design and query optimization, and use Grafana/Nagios for observability. I've also built hands-on GenAI/LLM applications and am actively deepening my data structures, algorithms, and system design fundamentals as I grow into backend software engineering.
+      </p>
+    </section>
+
+    <section id="experience">
+      <div>
+        <div class="seclabel">01 — Career</div>
+        <h2 class="sectitle">Experience</h2>
+      </div>
+      <div class="timeline-row">
+        <div class="timeline-marker">
+          <div class="timeline-dot"></div>
+          <div class="timeline-line"></div>
+        </div>
+        <div class="role-block">
+          <div class="role-head">
+            <div class="role-title">Associate Technical Consultant</div>
+            <div class="role-dates">Apr 2024 – Present</div>
+          </div>
+          <div class="role-org"><a href="https://www.hitachivantara.com/en-us/home" target="_blank" rel="noopener">Hitachi Vantara ↗</a> — Hyderabad, Telangana</div>
+          <ul class="role-list">
+            <li>Support enterprise-scale distributed and object storage environments in production, resolving incidents and SOC-driven escalations to maintain platform availability.</li>
+            <li>Diagnose and resolve infrastructure issues across Linux-based storage nodes and VMware-virtualized environments through log analysis and root cause investigation.</li>
+            <li>Query and analyze operational data using SQL, and debug PostgreSQL for a backend project, to drive incident investigation and reporting.</li>
+            <li>Monitor system health using Grafana and Nagios, refining alerting to close observability gaps.</li>
+            <li>Write Python and Bash scripts to automate diagnostics and recurring operational tasks, reducing manual toil.</li>
+            <li>Coordinate with L3 engineering teams and external vendors during high-impact incidents, validating production changes under ITIL V4 processes.</li>
+            <li>Author technical documentation and runbooks that reduce resolution time and improve knowledge continuity across the team.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div>
+        <div class="seclabel">02 — Selected Work</div>
+        <h2 class="sectitle">Projects</h2>
+      </div>
+
+      <div class="card">
+        <div class="seclabel proj-tag">Project 01</div>
+        <div class="proj-head">
+          <div class="proj-title">Sentinel — Cloud-Native Monitoring &amp; Incident Investigation Platform</div>
+          <div class="proj-stack">Python · FastAPI · PostgreSQL · Docker</div>
+        </div>
+        <ul class="proj-list">
+          <li>Backend platform for ingesting, storing, and querying application logs through REST APIs, with structured logging and health-check endpoints for observability and proactive issue detection.</li>
+          <li>PostgreSQL schemas with indexing applied to optimize log ingestion and retrieval performance.</li>
+          <li>Containerized with Docker to standardize local development and deployment.</li>
+        </ul>
+        <div class="proj-links">
+          <a class="projlink" href="https://github.com/suvishal/sentinel" target="_blank" rel="noopener">View code on GitHub ↗</a>
+          <a class="projlink" href="https://app.notion.com/p/Sentinel-Learning-Log-39668ecd385d80438d00ee5431f11fe5#d0e966354ce54b0b87f2c75a62fe98c5" target="_blank" rel="noopener">Read the learning log ↗</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="seclabel proj-tag">Project 02</div>
+        <div class="proj-head">
+          <div class="proj-title">Offline AI Document Summariser and Q&amp;A System</div>
+          <div class="proj-stack">Python · Hugging Face Transformers · FAISS</div>
+        </div>
+        <ul class="proj-list">
+          <li>Offline, end-to-end pipeline — document parsing, embedding-based vector search, and transformer-based summarization — replacing a manual, recurring document-review workflow without cloud dependencies.</li>
+          <li>Hands-on, practical exposure to applying AI/LLM techniques to a real operational problem.</li>
+        </ul>
+      </div>
+
+      <div class="proj-note">
+        More in progress — currently working through a structured backend engineering plan covering data structures &amp; algorithms, FastAPI, PostgreSQL, and system design.
+      </div>
+    </section>
+
+    <section id="skills">
+      <div>
+        <div class="seclabel">03 — Capabilities</div>
+        <h2 class="sectitle">Skills</h2>
+      </div>
+      <div>
+        <div class="ledgerrow">
+          <div class="ledgerlabel">Infrastructure &amp; Storage</div>
+          <div class="ledgerval">Enterprise Distributed &amp; Object Storage, Linux Administration &amp; Troubleshooting, VMware, SAN Fundamentals, Root Cause Analysis</div>
+        </div>
+        <div class="ledgerrow">
+          <div class="ledgerlabel">Observability</div>
+          <div class="ledgerval">Grafana, Nagios, Log Analysis, Health Checks, Alerting</div>
+        </div>
+        <div class="ledgerrow">
+          <div class="ledgerlabel">Backend &amp; Data</div>
+          <div class="ledgerval">Python, FastAPI, REST APIs, PostgreSQL, SQL, Data Structures &amp; Algorithms, System Design fundamentals</div>
+        </div>
+        <div class="ledgerrow">
+          <div class="ledgerlabel">Automation &amp; Tools</div>
+          <div class="ledgerval">Bash, Docker, Git/GitHub, C++, Java (basic)</div>
+        </div>
+        <div class="ledgerrow">
+          <div class="ledgerlabel">Process &amp; ITSM</div>
+          <div class="ledgerval">ITIL V4, Incident Management, Change Management, Technical Documentation</div>
+        </div>
+        <div class="ledgerrow">
+          <div class="ledgerlabel">AI / GenAI</div>
+          <div class="ledgerval">Hugging Face Transformers, FAISS, Sentence Transformers, LLM-based application development</div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div>
+        <div class="seclabel">04 — Background</div>
+        <h2 class="sectitle">Education &amp; Certifications</h2>
+      </div>
+      <div>
+        <div class="ledgerrow">
+          <div class="ledgerlabel">Education</div>
+          <div class="ledgerval">
+            <a href="https://www.nitc.ac.in/" target="_blank" rel="noopener" style="font-weight: 500;">National Institute of Technology Calicut ↗</a><br>
+            B.Tech, Electronics and Communication Engineering &nbsp;|&nbsp; 2019–2023
+          </div>
+        </div>
+        <div class="ledgerrow">
+          <div class="ledgerlabel">Certifications</div>
+          <div class="ledgerval">ITIL V4 &nbsp;|&nbsp; GitHub Copilot Certification (GH-300)</div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer" id="contact">
+    <div class="container">
+      <div class="rule-accent"></div>
+      <div class="footer-line">Let's build something reliable, together.</div>
+      <div class="footer-links">
+        <a href="mailto:suvishalkumarsesetti@gmail.com">Email</a>
+        <span class="sep">/</span>
+        <a href="https://www.linkedin.com/in/suvishal-kumar-sesetti/" target="_blank" rel="noopener">LinkedIn</a>
+        <span class="sep">/</span>
+        <a href="https://github.com/suvishal" target="_blank" rel="noopener">GitHub</a>
+      </div>
+      <div class="footer-copy">&copy; <span id="year"></span> Suvishal Kumar Sesetti</div>
+    </div>
+  </footer>
+
+  <div class="chat-root">
+    <div class="chat-panel" id="chatPanel">
+      <div class="chat-header">
+        <div>
+          <div class="chat-title">Ask about my work</div>
+          <div class="chat-sub" id="chatSubtitle">Ask me anything, answered live</div>
+        </div>
+        <button class="closebtn" id="chatClose" aria-label="Close chat">&times;</button>
+      </div>
+      <div class="chat-messages" id="chatMessages"></div>
+      <div class="chat-chips">
+        <button class="chip" data-topic="education">Education</button>
+        <button class="chip" data-topic="job">Current job</button>
+        <button class="chip" data-topic="sentinel">Sentinel project</button>
+        <button class="chip" data-topic="skills">Skills</button>
+        <button class="chip" data-topic="contact">Contact</button>
+      </div>
+      <div class="chat-inputrow">
+        <input class="chatinput" id="chatInput" type="text" placeholder="Ask a question...">
+        <button class="sendbtn" id="chatSend" aria-label="Send">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+        </button>
+      </div>
+    </div>
+    <button class="fabbtn" id="chatFab" aria-label="Open chat">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+    </button>
+  </div>
+
+</div>
+
+<script>
+(function () {
+  "use strict";
+
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  var LINKS = {
+    nitc: "https://www.nitc.ac.in/",
+    hitachi: "https://www.hitachivantara.com/en-us/home",
+    sentinelRepo: "https://github.com/suvishal/sentinel",
+    sentinelNotion: "https://app.notion.com/p/Sentinel-Learning-Log-39668ecd385d80438d00ee5431f11fe5#d0e966354ce54b0b87f2c75a62fe98c5",
+    linkedin: "https://www.linkedin.com/in/suvishal-kumar-sesetti/",
+    email: "mailto:suvishalkumarsesetti@gmail.com"
+  };
+
+  function mkBot(text, link, linkLabel) {
+    return { from: "bot", text: text, link: link || null, linkLabel: linkLabel || null };
+  }
+
+  function getAnswers(category) {
+    switch (category) {
+      case "education":
+        return [mkBot(
+          "Suvishal studied Electronics and Communication Engineering (B.Tech, 2019–2023) at the National Institute of Technology Calicut.",
+          LINKS.nitc, "Visit NIT Calicut ↗"
+        )];
+      case "job":
+        return [mkBot(
+          "He's currently an Associate Technical Consultant at Hitachi Vantara, supporting enterprise-scale distributed and object storage systems in production since April 2024.",
+          LINKS.hitachi, "Visit Hitachi Vantara ↗"
+        )];
+      case "sentinel":
+        return [
+          mkBot(
+            "Sentinel is a cloud-native monitoring and incident-investigation platform he built with Python, FastAPI, PostgreSQL, and Docker.",
+            LINKS.sentinelRepo, "View code on GitHub ↗"
+          ),
+          mkBot(
+            "He also keeps a public learning log documenting how it was built.",
+            LINKS.sentinelNotion, "Read the learning log ↗"
+          )
+        ];
+      case "ai":
+        return [mkBot(
+          "He built an offline GenAI document summarizer and Q&A system using Hugging Face Transformers and FAISS-based vector search, with no cloud dependencies."
+        )];
+      case "skills":
+        return [mkBot(
+          "Core strengths: Linux, PostgreSQL, Python, FastAPI, Grafana/Nagios observability, Docker, and ITIL-driven incident management, plus hands-on GenAI/LLM exposure."
+        )];
+      case "contact":
+        return [
+          mkBot("Best way to reach him directly is email.", LINKS.email, "Email Suvishal ↗"),
+          mkBot("Or connect on LinkedIn.", LINKS.linkedin, "Message on LinkedIn ↗")
+        ];
+      default:
+        return [mkBot(
+          "No canned answer for that yet, try asking about his education, current job, Sentinel project, skills, or how to get in touch, or just reach out directly.",
+          LINKS.email, "Email Suvishal ↗"
+        )];
+    }
+  }
+
+  function matchCategory(q) {
+    var t = (q || "").toLowerCase();
+    if (/college|university|educat|nitc|degree|studi/.test(t)) return "education";
+    if (/job|work|current|hitachi|employ|company|role/.test(t)) return "job";
+    if (/sentinel/.test(t)) return "sentinel";
+    if (/\bai\b|genai|llm|summar|faiss|transformer/.test(t)) return "ai";
+    if (/skill|tech|stack|language|tool/.test(t)) return "skills";
+    if (/contact|email|reach|hire|linkedin|talk/.test(t)) return "contact";
+    return "default";
+  }
+
+  var panel = document.getElementById("chatPanel");
+  var fab = document.getElementById("chatFab");
+  var closeBtn = document.getElementById("chatClose");
+  var messagesEl = document.getElementById("chatMessages");
+  var input = document.getElementById("chatInput");
+  var sendBtn = document.getElementById("chatSend");
+  var subtitleEl = document.getElementById("chatSubtitle");
+
+  var CHAT_ENDPOINT = "/api/chat";
+  var apiKnownDown = false; // set true after the first failed call, so we stop retrying every message
+
+  var messages = [
+    mkBot("Hi! Ask me anything about Suvishal's work, education, or how to reach him, or tap a topic below.")
+  ];
+  var apiHistory = []; // {role, content} pairs sent to the live model for context
+
+  // Turn any http(s) URL in plain text into a clickable link.
+  function linkifyInto(container, text) {
+    var urlRe = /(https?:\/\/[^\s]+)/g;
+    var lastIndex = 0;
+    var match;
+    while ((match = urlRe.exec(text)) !== null) {
+      if (match.index > lastIndex) {
+        container.appendChild(document.createTextNode(text.slice(lastIndex, match.index)));
+      }
+      var a = document.createElement("a");
+      var url = match[0].replace(/[.,)]+$/, ""); // trim trailing punctuation
+      a.href = url;
+      a.target = "_blank";
+      a.rel = "noopener";
+      a.textContent = url;
+      container.appendChild(a);
+      lastIndex = match.index + match[0].length;
+    }
+    if (lastIndex < text.length) {
+      container.appendChild(document.createTextNode(text.slice(lastIndex)));
+    }
+  }
+
+  function render() {
+    messagesEl.innerHTML = "";
+    messages.forEach(function (msg) {
+      var bubble = document.createElement("div");
+      bubble.className = "msg " + (msg.from === "user" ? "user" : "bot");
+
+      if (msg.thinking) {
+        bubble.style.opacity = "0.6";
+        bubble.style.fontStyle = "italic";
+        bubble.textContent = "Thinking...";
+        messagesEl.appendChild(bubble);
+        return;
+      }
+
+      var textEl = document.createElement("div");
+      linkifyInto(textEl, msg.text);
+      bubble.appendChild(textEl);
+
+      if (msg.link) {
+        var a = document.createElement("a");
+        a.href = msg.link;
+        a.target = "_blank";
+        a.rel = "noopener";
+        a.textContent = msg.linkLabel || "Learn more ↗";
+        bubble.appendChild(a);
+      }
+      messagesEl.appendChild(bubble);
+    });
+    messagesEl.scrollTop = messagesEl.scrollHeight;
+  }
+
+  function offlineFallback(q) {
+    var category = matchCategory(q);
+    return getAnswers(category);
+  }
+
+  function askLive(userText) {
+    var thinkingMsg = { from: "bot", thinking: true };
+    messages.push(thinkingMsg);
+    render();
+
+    fetch(CHAT_ENDPOINT, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ message: userText, history: apiHistory })
+    })
+      .then(function (res) {
+        if (!res.ok) throw new Error("bad status " + res.status);
+        return res.json();
+      })
+      .then(function (data) {
+        var idx = messages.indexOf(thinkingMsg);
+        if (idx !== -1) messages.splice(idx, 1);
+        if (data && data.reply) {
+          messages.push(mkBot(data.reply));
+          apiHistory.push({ role: "user", content: userText });
+          apiHistory.push({ role: "assistant", content: data.reply });
+          apiKnownDown = false;
+        } else {
+          throw new Error("no reply in response");
+        }
+        render();
+      })
+      .catch(function () {
+        apiKnownDown = true;
+        if (subtitleEl) subtitleEl.textContent = "Live assistant unavailable, answering from local info";
+        var idx = messages.indexOf(thinkingMsg);
+        if (idx !== -1) messages.splice(idx, 1);
+        offlineFallback(userText).forEach(function (m) { messages.push(m); });
+        render();
+      });
+  }
+
+  function askAbout(category, label) {
+    messages.push({ from: "user", text: label });
+    if (apiKnownDown) {
+      getAnswers(category).forEach(function (m) { messages.push(m); });
+      render();
+    } else {
+      askLive(label);
+    }
+  }
+
+  function sendQuery() {
+    var q = (input.value || "").trim();
+    if (!q) return;
+    messages.push({ from: "user", text: q });
+    input.value = "";
+    if (apiKnownDown) {
+      offlineFallback(q).forEach(function (m) { messages.push(m); });
+      render();
+    } else {
+      askLive(q);
+    }
+  }
+
+  fab.addEventListener("click", function () {
+    panel.classList.toggle("open");
+    if (panel.classList.contains("open")) { input.focus(); }
+  });
+  closeBtn.addEventListener("click", function () { panel.classList.remove("open"); });
+  sendBtn.addEventListener("click", sendQuery);
+  input.addEventListener("keydown", function (e) {
+    if (e.key === "Enter") { sendQuery(); }
+  });
+
+  document.querySelectorAll(".chip").forEach(function (chip) {
+    chip.addEventListener("click", function () {
+      var topic = chip.getAttribute("data-topic");
+      var labels = {
+        education: "Tell me about his education",
+        job: "What's his current job?",
+        sentinel: "Tell me about Sentinel",
+        skills: "What are his skills?",
+        contact: "How can I contact him?"
+      };
+      askAbout(topic, labels[topic] || topic);
+    });
+  });
+
+  render();
+})();
+</script>
+</body>
+</html>
