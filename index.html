@@ -241,6 +241,22 @@
         </ul>
       </div>
 
+      <div class="card">
+        <div class="seclabel proj-tag">Project 03</div>
+        <div class="proj-head">
+          <div class="proj-title">This Portfolio — Serverless Site with a Live AI Assistant</div>
+          <div class="proj-stack">Cloudflare Workers · Groq API · Vanilla JS</div>
+        </div>
+        <ul class="proj-list">
+          <li>Built and deployed this site itself as a serverless Cloudflare Worker, serving static assets and an API route from a single free-tier deployment with no dedicated server.</li>
+          <li>Integrated the Groq API (LLM inference) into a <code>/api/chat</code> endpoint so the chat widget below answers visitor questions with a real model, grounded in a system prompt of factual details, with the API key kept secret server-side.</li>
+          <li>Added a graceful offline fallback (a local FAQ matcher) so the widget degrades cleanly if the live model is ever unreachable or rate-limited.</li>
+        </ul>
+        <div class="proj-links">
+          <a class="projlink" href="https://github.com/suvishal/suvishal-portfolio" target="_blank" rel="noopener">View code on GitHub ↗</a>
+        </div>
+      </div>
+
       <div class="proj-note">
         More in progress — currently working through a structured backend engineering plan covering data structures &amp; algorithms, FastAPI, PostgreSQL, and system design.
       </div>
@@ -358,6 +374,7 @@
     hitachi: "https://www.hitachivantara.com/en-us/home",
     sentinelRepo: "https://github.com/suvishal/sentinel",
     sentinelNotion: "https://app.notion.com/p/Sentinel-Learning-Log-39668ecd385d80438d00ee5431f11fe5#d0e966354ce54b0b87f2c75a62fe98c5",
+    portfolioRepo: "https://github.com/suvishal/suvishal-portfolio",
     linkedin: "https://www.linkedin.com/in/suvishal-kumar-sesetti/",
     email: "mailto:suvishalkumarsesetti@gmail.com"
   };
@@ -393,6 +410,11 @@
         return [mkBot(
           "He built an offline GenAI document summarizer and Q&A system using Hugging Face Transformers and FAISS-based vector search, with no cloud dependencies."
         )];
+      case "portfolio":
+        return [mkBot(
+          "You're using it right now! This site itself runs as a serverless Cloudflare Worker, and this chat is a live Groq-powered assistant wired into it via a /api/chat endpoint, with a local fallback if the model is ever unreachable.",
+          LINKS.portfolioRepo, "View code on GitHub ↗"
+        )];
       case "skills":
         return [mkBot(
           "Core strengths: Linux, PostgreSQL, Python, FastAPI, Grafana/Nagios observability, Docker, and ITIL-driven incident management, plus hands-on GenAI/LLM exposure."
@@ -415,6 +437,7 @@
     if (/college|university|educat|nitc|degree|studi/.test(t)) return "education";
     if (/job|work|current|hitachi|employ|company|role/.test(t)) return "job";
     if (/sentinel/.test(t)) return "sentinel";
+    if (/this (site|portfolio|page|chat|bot|widget)|how.*(built|made).*(site|portfolio|chat)|serverless|cloudflare|worker/.test(t)) return "portfolio";
     if (/\bai\b|genai|llm|summar|faiss|transformer/.test(t)) return "ai";
     if (/skill|tech|stack|language|tool/.test(t)) return "skills";
     if (/contact|email|reach|hire|linkedin|talk/.test(t)) return "contact";
