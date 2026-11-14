@@ -79,6 +79,9 @@
   .proj-links { display: flex; gap: 20px; margin-top: 8px; padding-top: 14px; border-top: 1px solid var(--border); }
   .projlink { font-family: var(--font-body); font-size: 12.5px; letter-spacing: 0.02em; color: var(--ink); border-bottom: 1px solid rgba(18,32,58,0.25); }
   .projlink:hover { color: var(--accent); border-bottom-color: rgba(184,135,75,0.6); }
+  .secintro { margin: 10px 0 0; font-size: 15px; line-height: 1.6; color: var(--muted); max-width: 640px; }
+  .proj-question { font-family: var(--font-display); font-style: italic; font-size: 16px; line-height: 1.55; color: var(--ink); padding-left: 14px; border-left: 2px solid var(--accent); }
+  .proj-question span { font-family: var(--font-body); font-style: normal; font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); font-weight: 600; margin-right: 6px; }
   .proj-note { padding: 18px 26px; border: 1px dashed var(--border); border-radius: 3px; font-size: 13.5px; color: var(--muted); font-style: italic; }
 
   .ledgerrow { display: flex; gap: 26px; padding: 15px 0; border-bottom: 1px solid var(--border); }
@@ -138,7 +141,8 @@
       <div class="brand">Suvishal Kumar Sesetti</div>
       <div class="navlinks">
         <a class="navlink" href="#experience">Experience</a>
-        <a class="navlink" href="#projects">Projects</a>
+        <a class="navlink" href="#engineering">Engineering</a>
+        <a class="navlink" href="#research">Research</a>
         <a class="navlink" href="#skills">Skills</a>
         <a class="navlink" href="#contact">Contact</a>
       </div>
@@ -226,14 +230,15 @@
       </div>
     </section>
 
-    <section id="projects">
+    <section id="engineering">
       <div>
-        <div class="seclabel">02 — Selected Work</div>
-        <h2 class="sectitle">Projects</h2>
+        <div class="seclabel">02 — Software Engineering</div>
+        <h2 class="sectitle">Systems I've Built</h2>
+        <p class="secintro">Backend services and tools built to run in practice, with deployment, observability and failure handling considered from the start.</p>
       </div>
 
       <div class="card">
-        <div class="seclabel proj-tag">Project 01</div>
+        <div class="seclabel proj-tag">Engineering 01</div>
         <div class="proj-head">
           <div class="proj-title">Sentinel — Cloud-Native Monitoring &amp; Incident Investigation Platform</div>
           <div class="proj-stack">Python · FastAPI · PostgreSQL · Docker</div>
@@ -250,25 +255,7 @@
       </div>
 
       <div class="card">
-        <div class="seclabel proj-tag">Project 02</div>
-        <div class="proj-head">
-          <div class="proj-title">Kalman Filter Research — GPS + IMU Sensor Fusion</div>
-          <div class="proj-stack">Python · NumPy · SciPy · Matplotlib · pytest</div>
-        </div>
-        <ul class="proj-list">
-          <li>From-scratch study of Kalman filter state estimation and GPS + IMU sensor fusion, implemented in NumPy with no filtering library, with the maths derived step by step and linked to the code.</li>
-          <li>Five reproducible experiments: the filter cuts position RMSE 2.1–2.3x versus tuned smoothing baselines, and fusing a 100 Hz accelerometer with 1 Hz GPS reaches 2.3 m RMSE versus 4.2 m for GPS alone, when sensor bias is modelled as a state.</li>
-          <li>Analysed tuning sensitivity and filter consistency (NEES/NIS, innovation autocorrelation), and built an adaptive filter that learns measurement noise online, recovering from a 100x mis-tuning to within 0.3% of the oracle.</li>
-          <li>Tested with pytest, regenerates all results and figures with one command, and is written up as a research paper draft.</li>
-        </ul>
-        <div class="proj-links">
-          <a class="projlink" href="https://github.com/suvishal/Kalman_filter_sensor" target="_blank" rel="noopener">View code on GitHub ↗</a>
-          <a class="projlink" href="https://github.com/suvishal/Kalman_filter_sensor/blob/main/report/paper_draft.md" target="_blank" rel="noopener">Read the paper draft ↗</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="seclabel proj-tag">Project 03</div>
+        <div class="seclabel proj-tag">Engineering 02</div>
         <div class="proj-head">
           <div class="proj-title">Offline AI Document Summariser and Q&amp;A System</div>
           <div class="proj-stack">Python · Hugging Face Transformers · FAISS</div>
@@ -280,7 +267,7 @@
       </div>
 
       <div class="card">
-        <div class="seclabel proj-tag">Project 04</div>
+        <div class="seclabel proj-tag">Engineering 03</div>
         <div class="proj-head">
           <div class="proj-title">This Portfolio — Serverless Site with a Live AI Assistant</div>
           <div class="proj-stack">Cloudflare Workers · Groq API · Vanilla JS</div>
@@ -295,12 +282,41 @@
         </div>
       </div>
 
+    </section>
+
+    <section id="research">
+      <div>
+        <div class="seclabel">03 — Research</div>
+        <h2 class="sectitle">Estimation, Sensing &amp; Vision</h2>
+        <p class="secintro">Each study starts from a question and is answered with derivation, simulation and measurement, with every claim backed by a number.</p>
+      </div>
+
       <div class="card">
-        <div class="seclabel proj-tag">Project 05 · B.Tech Major Project, NIT Calicut</div>
+        <div class="seclabel proj-tag">Research 01 · Independent study, 2026</div>
+        <div class="proj-head">
+          <div class="proj-title">Kalman Filter Research — GPS + IMU Sensor Fusion</div>
+          <div class="proj-stack">Python · NumPy · SciPy · Matplotlib · pytest</div>
+        </div>
+        <div class="proj-question"><span>Question</span> How much does Kalman filter accuracy depend on noise tuning, can a filter detect its own mis-tuning, and what does GPS + IMU fusion actually buy?</div>
+        <ul class="proj-list">
+          <li>From-scratch study of Kalman filter state estimation and GPS + IMU sensor fusion, implemented in NumPy with no filtering library, with the maths derived step by step and linked to the code.</li>
+          <li>Five reproducible experiments: the filter cuts position RMSE 2.1–2.3x versus tuned smoothing baselines, and fusing a 100 Hz accelerometer with 1 Hz GPS reaches 2.3 m RMSE versus 4.2 m for GPS alone, when sensor bias is modelled as a state.</li>
+          <li>Analysed tuning sensitivity and filter consistency (NEES/NIS, innovation autocorrelation), and built an adaptive filter that learns measurement noise online, recovering from a 100x mis-tuning to within 0.3% of the oracle.</li>
+          <li>Tested with pytest, regenerates all results and figures with one command, and is written up as a research paper draft.</li>
+        </ul>
+        <div class="proj-links">
+          <a class="projlink" href="https://github.com/suvishal/Kalman_filter_sensor" target="_blank" rel="noopener">View code on GitHub ↗</a>
+          <a class="projlink" href="https://github.com/suvishal/Kalman_filter_sensor/blob/main/report/paper_draft.md" target="_blank" rel="noopener">Read the paper draft ↗</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="seclabel proj-tag">Research 02 · B.Tech Major Project, NIT Calicut, 2023</div>
         <div class="proj-head">
           <div class="proj-title">Depth Resolution Improvement in CMOS Time-of-Flight Image Sensors</div>
           <div class="proj-stack">Cadence Virtuoso · UMC 180nm CMOS</div>
         </div>
+        <div class="proj-question"><span>Question</span> Can pixel-level nonlinearity in CMOS image sensors be reduced enough to measurably improve time-of-flight depth accuracy?</div>
         <ul class="proj-list">
           <li>Final-year research project in a team of four, studying how pixel-level nonlinearity limits depth accuracy in indirect time-of-flight (iToF) sensors used in robotics, automotive, and AR/VR.</li>
           <li>Replaced the source follower in a standard 3T active pixel with an operational transconductance amplifier (5T-OTA pixel), cutting nonlinearity from 5.20% to 0.788% and reducing variation across all five process corners.</li>
@@ -308,14 +324,27 @@
         </ul>
       </div>
 
+      <div class="card">
+        <div class="seclabel proj-tag">Research 03 · Coursework</div>
+        <div class="proj-head">
+          <div class="proj-title">Computer Vision &amp; Deep Learning Coursework</div>
+          <div class="proj-stack">Python · TensorFlow · PyTorch · OpenCV</div>
+        </div>
+        <ul class="proj-list">
+          <li>Facial expression recognition with a convolutional neural network, as a team course project.</li>
+          <li>Image captioning: studied encoder–decoder models that pair a CNN image encoder (EfficientNet) with an attention-based language decoder.</li>
+          <li>In progress: a CycleGAN for unpaired image-to-image translation (photo → Monet-style painting) in PyTorch, with custom data loading and preprocessing, for Kaggle's GAN competition.</li>
+        </ul>
+      </div>
+
       <div class="proj-note">
-        More in progress — currently working through a structured backend engineering plan covering data structures &amp; algorithms, FastAPI, PostgreSQL, and system design, and extending the Kalman filter study toward learned estimators.
+        Next: a structured backend engineering plan covering data structures &amp; algorithms, FastAPI, PostgreSQL and system design, and extending the Kalman filter study to compare against learned estimators.
       </div>
     </section>
 
     <section id="skills">
       <div>
-        <div class="seclabel">03 — Capabilities</div>
+        <div class="seclabel">04 — Capabilities</div>
         <h2 class="sectitle">Skills</h2>
       </div>
       <div>
@@ -348,8 +377,8 @@
           <div class="ledgerval">Hugging Face Transformers, FAISS, Sentence Transformers, LLM-based application development</div>
         </div>
         <div class="ledgerrow">
-          <div class="ledgerlabel">Estimation &amp; Numerics</div>
-          <div class="ledgerval">Kalman Filtering, Sensor Fusion (GPS + IMU), Adaptive Noise Estimation, NumPy, SciPy, Matplotlib, pytest</div>
+          <div class="ledgerlabel">Estimation, Numerics &amp; Vision</div>
+          <div class="ledgerval">Kalman Filtering, Sensor Fusion (GPS + IMU), Adaptive Noise Estimation, NumPy, SciPy, Matplotlib, pytest, CNNs, GANs, PyTorch, TensorFlow, OpenCV</div>
         </div>
         <div class="ledgerrow">
           <div class="ledgerlabel">Electronics &amp; Circuits</div>
@@ -360,7 +389,7 @@
 
     <section>
       <div>
-        <div class="seclabel">04 — Background</div>
+        <div class="seclabel">05 — Background</div>
         <h2 class="sectitle">Education &amp; Certifications</h2>
       </div>
       <div>
