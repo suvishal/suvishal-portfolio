@@ -295,6 +295,19 @@
         </div>
       </div>
 
+      <div class="card">
+        <div class="seclabel proj-tag">Project 05 · B.Tech Major Project, NIT Calicut</div>
+        <div class="proj-head">
+          <div class="proj-title">Depth Resolution Improvement in CMOS Time-of-Flight Image Sensors</div>
+          <div class="proj-stack">Cadence Virtuoso · UMC 180nm CMOS</div>
+        </div>
+        <ul class="proj-list">
+          <li>Final-year research project in a team of four, studying how pixel-level nonlinearity limits depth accuracy in indirect time-of-flight (iToF) sensors used in robotics, automotive, and AR/VR.</li>
+          <li>Replaced the source follower in a standard 3T active pixel with an operational transconductance amplifier (5T-OTA pixel), cutting nonlinearity from 5.20% to 0.788% and reducing variation across all five process corners.</li>
+          <li>Simulated complete iToF sensors with both pixel designs, reducing distance-measurement error from 13.68% to 3.34%, and analysed the settling-time trade-off and how error scales with the number of integration cycles.</li>
+        </ul>
+      </div>
+
       <div class="proj-note">
         More in progress — currently working through a structured backend engineering plan covering data structures &amp; algorithms, FastAPI, PostgreSQL, and system design, and extending the Kalman filter study toward learned estimators.
       </div>
@@ -337,6 +350,10 @@
         <div class="ledgerrow">
           <div class="ledgerlabel">Estimation &amp; Numerics</div>
           <div class="ledgerval">Kalman Filtering, Sensor Fusion (GPS + IMU), Adaptive Noise Estimation, NumPy, SciPy, Matplotlib, pytest</div>
+        </div>
+        <div class="ledgerrow">
+          <div class="ledgerlabel">Electronics &amp; Circuits</div>
+          <div class="ledgerval">Analog Circuit Design &amp; Simulation, Cadence Virtuoso, CMOS Image Sensors, Time-of-Flight Sensing, Process Corner Analysis</div>
         </div>
       </div>
     </section>
@@ -459,6 +476,10 @@
           "He built a from-scratch Kalman filter research project in Python and NumPy, studying GPS + IMU sensor fusion, tuning sensitivity, filter consistency, and adaptive noise estimation, written up as a paper draft.",
           LINKS.kalmanRepo, "View code on GitHub ↗"
         )];
+      case "thesis":
+        return [mkBot(
+          "His B.Tech major project at NIT Calicut, done in a team of four, improved depth resolution in CMOS time-of-flight image sensors. Replacing the 3T source-follower pixel with a 5T-OTA pixel cut nonlinearity from 5.20% to 0.788% and distance error from 13.68% to 3.34% in Cadence Virtuoso simulations (UMC 180nm)."
+        )];
       case "ai":
         return [mkBot(
           "He built an offline GenAI document summarizer and Q&A system using Hugging Face Transformers and FAISS-based vector search, with no cloud dependencies."
@@ -487,6 +508,7 @@
 
   function matchCategory(q) {
     var t = (q || "").toLowerCase();
+    if (/thesis|major project|final.year|time.of.flight|\btof\b|cmos|cadence|pixel|image sensor/.test(t)) return "thesis";
     if (/college|university|educat|nitc|degree|studi/.test(t)) return "education";
     if (/job|work|current|hitachi|employ|company|role|migrat|client|manag/.test(t)) return "job";
     if (/sentinel/.test(t)) return "sentinel";
