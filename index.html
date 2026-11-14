@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Suvishal Kumar Sesetti — Portfolio</title>
-<meta name="description" content="Infrastructure & Backend Engineer — Production Support, Python, FastAPI, Linux">
+<meta name="description" content="Infrastructure & Backend Engineer — Production Support, Client-Facing Migration Delivery, Python, FastAPI, Linux">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
@@ -151,9 +151,9 @@
       <div class="eyebrow">Portfolio</div>
       <h1 class="name">Suvishal Kumar<br>Sesetti</h1>
       <div class="rule-accent"></div>
-      <div class="role">Infrastructure &amp; Backend Engineer — Production Support, Python, FastAPI, Linux</div>
+      <div class="role">Infrastructure &amp; Backend Engineer — Production Support, Client-Facing Migration Delivery, Python, FastAPI, Linux</div>
       <p class="hero-blurb">
-        I keep production systems running and build backend tools to make that easier — currently supporting enterprise-scale storage infrastructure at <a href="https://www.hitachivantara.com/en-us/home" target="_blank" rel="noopener">Hitachi Vantara</a>, while building toward backend software engineering.
+        I keep production systems running and build backend tools to make that easier — currently supporting enterprise-scale storage infrastructure and managing a client-facing migration engagement at <a href="https://www.hitachivantara.com/en-us/home" target="_blank" rel="noopener">Hitachi Vantara</a>, while building toward backend software engineering.
       </p>
       <div class="hero-meta">
         <span>Hyderabad, India</span>
@@ -173,7 +173,7 @@
 
     <section>
       <p class="about-text">
-        Production support engineer with 2+ years of hands-on experience troubleshooting mission-critical enterprise systems — incident response, root cause analysis, and ITIL-driven change management across Linux and VMware environments. Alongside this, I build backend services in Python and FastAPI, work with PostgreSQL for schema design and query optimization, and use Grafana/Nagios for observability. I've also built hands-on GenAI/LLM applications and am actively deepening my data structures, algorithms, and system design fundamentals as I grow into backend software engineering.
+        Infrastructure engineer with 2.5 years of hands-on experience troubleshooting mission-critical enterprise systems — incident response, root cause analysis, and ITIL-driven change management across Linux and VMware environments. I now also manage a client-facing migration engagement, coordinating client stakeholders, engineering teams, and vendors from planning through cutover. Alongside this, I build backend services in Python and FastAPI, work with PostgreSQL for schema design and query optimization, and use Grafana/Nagios for observability. I've also built hands-on GenAI/LLM applications and am actively deepening my data structures, algorithms, and system design fundamentals as I grow into backend software engineering.
       </p>
     </section>
 
@@ -181,6 +181,26 @@
       <div>
         <div class="seclabel">01 — Career</div>
         <h2 class="sectitle">Experience</h2>
+      </div>
+      <div class="timeline-row">
+        <div class="timeline-marker">
+          <div class="timeline-dot"></div>
+          <div class="timeline-line"></div>
+        </div>
+        <div class="role-block">
+          <div class="role-head">
+            <div class="role-title">Migration Manager — Client Delivery</div>
+            <div class="role-dates">Oct 2026 – Present</div>
+          </div>
+          <div class="role-org"><a href="https://www.hitachivantara.com/en-us/home" target="_blank" rel="noopener">Hitachi Vantara ↗</a> — Hyderabad, Telangana &nbsp;·&nbsp; alongside current consulting role</div>
+          <ul class="role-list">
+            <li>Manage a migration engagement for an enterprise client as the primary point of contact between the client, internal engineering, and delivery teams.</li>
+            <li>Plan migration phases and track timelines, dependencies, and risks to keep workstreams on schedule through cutover.</li>
+            <li>Run client status calls and stakeholder updates, translating technical progress and blockers into clear, actionable communication.</li>
+            <li>Coordinate across engineering, support, and vendor teams to unblock issues and align on priorities.</li>
+            <li>Apply hands-on infrastructure and storage experience to scope technical requirements and anticipate migration risks early.</li>
+          </ul>
+        </div>
       </div>
       <div class="timeline-row">
         <div class="timeline-marker">
@@ -232,6 +252,24 @@
       <div class="card">
         <div class="seclabel proj-tag">Project 02</div>
         <div class="proj-head">
+          <div class="proj-title">Kalman Filter Research — GPS + IMU Sensor Fusion</div>
+          <div class="proj-stack">Python · NumPy · SciPy · Matplotlib · pytest</div>
+        </div>
+        <ul class="proj-list">
+          <li>From-scratch study of Kalman filter state estimation and GPS + IMU sensor fusion, implemented in NumPy with no filtering library, with the maths derived step by step and linked to the code.</li>
+          <li>Five reproducible experiments: the filter cuts position RMSE 2.1–2.3x versus tuned smoothing baselines, and fusing a 100 Hz accelerometer with 1 Hz GPS reaches 2.3 m RMSE versus 4.2 m for GPS alone, when sensor bias is modelled as a state.</li>
+          <li>Analysed tuning sensitivity and filter consistency (NEES/NIS, innovation autocorrelation), and built an adaptive filter that learns measurement noise online, recovering from a 100x mis-tuning to within 0.3% of the oracle.</li>
+          <li>Tested with pytest, regenerates all results and figures with one command, and is written up as a research paper draft.</li>
+        </ul>
+        <div class="proj-links">
+          <a class="projlink" href="https://github.com/suvishal/Kalman_filter_sensor" target="_blank" rel="noopener">View code on GitHub ↗</a>
+          <a class="projlink" href="https://github.com/suvishal/Kalman_filter_sensor/blob/main/report/paper_draft.md" target="_blank" rel="noopener">Read the paper draft ↗</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="seclabel proj-tag">Project 03</div>
+        <div class="proj-head">
           <div class="proj-title">Offline AI Document Summariser and Q&amp;A System</div>
           <div class="proj-stack">Python · Hugging Face Transformers · FAISS</div>
         </div>
@@ -242,7 +280,7 @@
       </div>
 
       <div class="card">
-        <div class="seclabel proj-tag">Project 03</div>
+        <div class="seclabel proj-tag">Project 04</div>
         <div class="proj-head">
           <div class="proj-title">This Portfolio — Serverless Site with a Live AI Assistant</div>
           <div class="proj-stack">Cloudflare Workers · Groq API · Vanilla JS</div>
@@ -258,7 +296,7 @@
       </div>
 
       <div class="proj-note">
-        More in progress — currently working through a structured backend engineering plan covering data structures &amp; algorithms, FastAPI, PostgreSQL, and system design.
+        More in progress — currently working through a structured backend engineering plan covering data structures &amp; algorithms, FastAPI, PostgreSQL, and system design, and extending the Kalman filter study toward learned estimators.
       </div>
     </section>
 
@@ -285,12 +323,20 @@
           <div class="ledgerval">Bash, Docker, Git/GitHub, C++, Java (basic)</div>
         </div>
         <div class="ledgerrow">
+          <div class="ledgerlabel">Delivery &amp; Stakeholders</div>
+          <div class="ledgerval">Client Communication, Stakeholder Management, Migration Planning &amp; Cutover Coordination, Project Coordination, Risk &amp; Dependency Tracking, Status Reporting, Cross-Team &amp; Vendor Coordination</div>
+        </div>
+        <div class="ledgerrow">
           <div class="ledgerlabel">Process &amp; ITSM</div>
           <div class="ledgerval">ITIL V4, Incident Management, Change Management, Technical Documentation</div>
         </div>
         <div class="ledgerrow">
           <div class="ledgerlabel">AI / GenAI</div>
           <div class="ledgerval">Hugging Face Transformers, FAISS, Sentence Transformers, LLM-based application development</div>
+        </div>
+        <div class="ledgerrow">
+          <div class="ledgerlabel">Estimation &amp; Numerics</div>
+          <div class="ledgerval">Kalman Filtering, Sensor Fusion (GPS + IMU), Adaptive Noise Estimation, NumPy, SciPy, Matplotlib, pytest</div>
         </div>
       </div>
     </section>
@@ -346,6 +392,7 @@
         <button class="chip" data-topic="education">Education</button>
         <button class="chip" data-topic="job">Current job</button>
         <button class="chip" data-topic="sentinel">Sentinel project</button>
+        <button class="chip" data-topic="kalman">Kalman project</button>
         <button class="chip" data-topic="skills">Skills</button>
         <button class="chip" data-topic="contact">Contact</button>
       </div>
@@ -375,6 +422,7 @@
     sentinelRepo: "https://github.com/suvishal/sentinel",
     sentinelNotion: "https://app.notion.com/p/Sentinel-Learning-Log-39668ecd385d80438d00ee5431f11fe5#d0e966354ce54b0b87f2c75a62fe98c5",
     portfolioRepo: "https://github.com/suvishal/suvishal-portfolio",
+    kalmanRepo: "https://github.com/suvishal/Kalman_filter_sensor",
     linkedin: "https://www.linkedin.com/in/suvishal-kumar-sesetti/",
     email: "mailto:suvishalkumarsesetti@gmail.com"
   };
@@ -392,7 +440,7 @@
         )];
       case "job":
         return [mkBot(
-          "He's currently an Associate Technical Consultant at Hitachi Vantara, supporting enterprise-scale distributed and object storage systems in production since April 2024.",
+          "He's at Hitachi Vantara, where he's been an Associate Technical Consultant supporting enterprise-scale storage systems in production since April 2024. Since October 2026 he also manages a client-facing migration engagement, coordinating the client, engineering teams, and vendors.",
           LINKS.hitachi, "Visit Hitachi Vantara ↗"
         )];
       case "sentinel":
@@ -406,6 +454,11 @@
             LINKS.sentinelNotion, "Read the learning log ↗"
           )
         ];
+      case "kalman":
+        return [mkBot(
+          "He built a from-scratch Kalman filter research project in Python and NumPy, studying GPS + IMU sensor fusion, tuning sensitivity, filter consistency, and adaptive noise estimation, written up as a paper draft.",
+          LINKS.kalmanRepo, "View code on GitHub ↗"
+        )];
       case "ai":
         return [mkBot(
           "He built an offline GenAI document summarizer and Q&A system using Hugging Face Transformers and FAISS-based vector search, with no cloud dependencies."
@@ -417,7 +470,7 @@
         )];
       case "skills":
         return [mkBot(
-          "Core strengths: Linux, PostgreSQL, Python, FastAPI, Grafana/Nagios observability, Docker, and ITIL-driven incident management, plus hands-on GenAI/LLM exposure."
+          "Core strengths: Linux, PostgreSQL, Python, FastAPI, Grafana/Nagios observability, Docker, and ITIL-driven incident management, plus client communication, stakeholder management, and migration coordination, with hands-on GenAI/LLM and Kalman filtering work."
         )];
       case "contact":
         return [
@@ -426,7 +479,7 @@
         ];
       default:
         return [mkBot(
-          "No canned answer for that yet, try asking about his education, current job, Sentinel project, skills, or how to get in touch, or just reach out directly.",
+          "No canned answer for that yet, try asking about his education, current job, Sentinel or Kalman filter projects, skills, or how to get in touch, or just reach out directly.",
           LINKS.email, "Email Suvishal ↗"
         )];
     }
@@ -435,8 +488,9 @@
   function matchCategory(q) {
     var t = (q || "").toLowerCase();
     if (/college|university|educat|nitc|degree|studi/.test(t)) return "education";
-    if (/job|work|current|hitachi|employ|company|role/.test(t)) return "job";
+    if (/job|work|current|hitachi|employ|company|role|migrat|client|manag/.test(t)) return "job";
     if (/sentinel/.test(t)) return "sentinel";
+    if (/kalman|sensor|fusion|gps|imu|estimat/.test(t)) return "kalman";
     if (/this (site|portfolio|page|chat|bot|widget)|how.*(built|made).*(site|portfolio|chat)|serverless|cloudflare|worker/.test(t)) return "portfolio";
     if (/\bai\b|genai|llm|summar|faiss|transformer/.test(t)) return "ai";
     if (/skill|tech|stack|language|tool/.test(t)) return "skills";
@@ -596,6 +650,7 @@
         education: "Tell me about his education",
         job: "What's his current job?",
         sentinel: "Tell me about Sentinel",
+        kalman: "Tell me about the Kalman filter project",
         skills: "What are his skills?",
         contact: "How can I contact him?"
       };

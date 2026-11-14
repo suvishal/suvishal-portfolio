@@ -2,11 +2,11 @@
   "name": "portfolio-with-live-chat",
   "private": true,
   "version": "1.0.0",
-  "description": "Personal portfolio site with a Cloudflare Pages Function backend that powers a live, Groq-hosted chat assistant.",
+  "description": "Personal portfolio site served by a Cloudflare Worker, with a live Groq-hosted chat assistant.",
   "scripts": {
-    "dev": "wrangler pages dev . --compatibility-date=2024-09-01"
+    "dev": "wrangler dev"
   },
   "devDependencies": {
-    "wrangler": "^3.78.0"
+    "wrangler": "^4.0.0"
   }
 }
