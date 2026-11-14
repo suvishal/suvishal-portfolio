@@ -5,3 +5,6 @@ compatibility_date = "2024-09-01"
 [assets]
 directory = "./"
 binding = "ASSETS"
+
+# Required by `npx wrangler preview`, which Cloudflare runs for non-production branch builds
+[previews]
